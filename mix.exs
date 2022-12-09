@@ -8,8 +8,9 @@ defmodule PhoenixSlime.Mixfile do
       app: :phoenix_slime,
       deps: deps(),
       description: "Phoenix Template Engine for Slim-like templates",
-      elixir: "~> 1.4",
+      elixir: "~> 1.10",
       package: package(),
+      dialyzer: [plt_add_apps: [:mix]],
       version: @version
     ]
   end
@@ -26,7 +27,9 @@ defmodule PhoenixSlime.Mixfile do
       {:jason, "~> 1.0", optional: true},
       {:slime, github: "tensiondriven/slime", branch: "master"},
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:earmark, ">= 0.0.0", only: :dev}
+      {:earmark, ">= 0.0.0", only: :dev},
+      {:credo, ">= 0.0.0", only: [:dev, :test]},
+      {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false}
     ]
   end
 
